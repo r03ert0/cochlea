@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html {
+        font-family: sans-serif;
+        line-height: 1.5;
+      }
+      canvas {
+        border: 1px solid black;
+        margin: 3px;
+        background: #333;
+      }
+      #canvas {
+        position:absolute;
+        top:0;
+        left:0;
+        width: 800px;
+        height: 200px;
+      }
+      #freq {
+        position:absolute;
+        bottom:0;
+        left:0;
+        width: 800px;
+        height: 50px;
+        background: lightGrey;
+      }
+      .title {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        color: white;
+        font-size: 10px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+<body>
+  <audio crossorigin="anonymous">
+    <source src="https://thelakeradio.radioca.st/stream" type="audio/mpeg">
+  </audio>
+
+  <div>
+    <b>Listening to <a href="https://thelakeradio.com/">The Lake Radio</a></b>
+  </div>
+
+  <div>
+    <button id="start">Start</button>
+    <button id="pause">Pause</button>
+    Gain: <input type="range" id="volume" min="0" max="4" step="0.01" value="0.5" />
+  </div>
+
+  <div style="position:relative;height:250px">
+    <span class="title">Spectrum</span>
+    <canvas id="canvas" width="800px" height="200px"></canvas>
+    <canvas id="freq" width="1200px" height="75px"></canvas>
+  </div>
+
+  <div>
+    <div style="display:inline-block;position:relative;height:250px">
+      <span class="title">Eigenvalues</span>
+      <canvas id="evals" width="200px" height="200px"></canvas>
+    </div>
+
+    <div style="display:inline-block;position:relative;height:250px">
+      <span class="title">Eigenvectors</span>
+      <canvas id="evecs" width="589px" height="200px"></canvas>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>  
+</body>
+</html>
